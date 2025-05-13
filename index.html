@@ -3,143 +3,307 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brisanet FWA - Liberdade e Velocidade</title>
+    <title>Brisanet FWA - Inovação Sem Limites</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <style>
+      :root {
+        --primary: #ff4f19;
+        --primary-dark: #fea418;
+        --bg: #fff8f2;
+        --text: #1e1e1e;
+        --gray: #666;
+        --light: #fff;
+      }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        scroll-behavior: smooth;
       }
 
       body {
         font-family: "Outfit", sans-serif;
-        background-color: #f2f7ff;
-        color: #111;
+        background-color: var(--bg);
+        color: var(--text);
         overflow-x: hidden;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       header {
-        background: linear-gradient(135deg, #003f7f, #0077c0);
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
         color: white;
+        padding: 3rem 1rem;
         text-align: center;
-        padding: 2rem 1.5rem 1rem;
-        position: relative;
-      }
-
-      header img {
-        width: 100%;
-        max-height: 220px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: 1rem;
       }
 
       header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: 800;
         margin-bottom: 0.5rem;
       }
 
       header p {
-        font-size: 1rem;
-        max-width: 400px;
+        font-size: 1.2rem;
+        max-width: 700px;
         margin: 0 auto;
+        animation: pulse 2s infinite;
       }
 
-      .content {
-        padding: 2rem 1.5rem;
-        max-width: 600px;
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+
+      section {
+        padding: 2rem 1rem;
+        max-width: 1000px;
         margin: 0 auto;
         text-align: center;
       }
 
-      .content h2 {
+      section h2 {
         font-size: 1.6rem;
-        color: #003f7f;
-        margin-bottom: 0.5rem;
+        color: var(--primary-dark);
+        margin-bottom: 1rem;
       }
 
-      .content p {
+      section p {
+        color: var(--gray);
         font-size: 1rem;
-        color: #333;
-        margin-bottom: 1.5rem;
       }
 
-      .video-box {
+      .features {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .feature {
+        background: white;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature i {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        transition: transform 0.3s;
+      }
+
+      .feature:hover i {
+        transform: scale(1.2) rotate(5deg);
+      }
+
+      .video {
         border-radius: 12px;
         overflow: hidden;
-        border: 3px solid #0077c0;
-        box-shadow: 0 4px 20px rgba(0, 63, 127, 0.3);
-        margin-bottom: 2rem;
+        border: 3px solid var(--primary);
+        box-shadow: 0 4px 10px rgba(245, 130, 32, 0.2);
+        margin-top: 2rem;
       }
 
-      .video-box iframe {
+      .video iframe {
         width: 100%;
-        height: 220px;
+        height: 200px;
       }
 
-      .btn-whatsapp {
-        display: inline-block;
+      .whatsapp-btn {
+        margin-top: 2rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         background-color: #25d366;
         color: white;
         font-size: 1rem;
-        padding: 0.9rem 1.8rem;
+        font-weight: 600;
+        padding: 0.8rem 1.5rem;
         border-radius: 50px;
         text-decoration: none;
-        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        transition: transform 0.3s ease, background 0.3s ease;
+        transition: background 0.3s ease, transform 0.3s ease;
+        animation: bounce 1.5s infinite;
       }
 
-      .btn-whatsapp:hover {
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .whatsapp-btn:hover {
         background-color: #1ebe5d;
         transform: scale(1.05);
       }
 
+      .fwa-image {
+        margin-top: 2rem;
+      }
+
+      .fwa-image img {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
       footer {
-        margin-top: 3rem;
+        margin-top: 2rem;
         text-align: center;
-        padding: 2rem 1rem;
-        color: #444;
-        font-size: 0.85rem;
-        background-color: #e1ecf7;
+        padding: 1.5rem 1rem;
+        background-color: #fff1e5;
+        font-size: 0.9rem;
+        color: var(--gray);
+        border-top: 1px solid #ffd9b8;
+      }
+
+      @media (min-width: 600px) {
+        .features {
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .video iframe {
+          height: 360px;
+        }
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>Internet FWA da Brisanet</h1>
+    <header data-aos="fade-down">
+      <h1>Explore o Poder da Brisanet FWA</h1>
       <p>
-        Liberdade para navegar com alta velocidade, até onde a fibra ainda não
-        chegou. Conecte-se com qualidade e inovação!
+        Conecte-se com a internet de qualidade, onde a fibra ainda não chegou!
       </p>
     </header>
 
-    <section class="content">
+    <section data-aos="fade-up">
       <h2>O que é FWA?</h2>
       <p>
-        FWA (Fixed Wireless Access) é uma solução moderna de acesso à internet
-        via sinal de rádio, ideal para regiões onde a fibra óptica ainda não
-        está disponível. Rápido, confiável e sem complicações!
+        FWA (Fixed Wireless Access) é a tecnologia que usa sinal sem fio para
+        levar internet rápida até você, mesmo onde a fibra óptica ainda não
+        chegou. Sem cabos, sem limites.
       </p>
+    </section>
 
-      <div class="video-box">
+    <section data-aos="fade-up">
+      <h2>Vantagens da Internet FWA</h2>
+      <div class="features">
+        <div class="feature" data-aos="zoom-in" data-aos-delay="100">
+          <i class="bx bx-wifi"></i>
+          <h3>Alta Velocidade</h3>
+          <p>
+            Navegue com rapidez e estabilidade em todos os seus dispositivos.
+          </p>
+        </div>
+        <div class="feature" data-aos="zoom-in" data-aos-delay="200">
+          <i class="bx bx-globe"></i>
+          <h3>Mais Alcance</h3>
+          <p>Ideal para áreas rurais e locais sem infraestrutura de fibra.</p>
+        </div>
+        <div class="feature" data-aos="zoom-in" data-aos-delay="300">
+          <i class="bx bx-plug"></i>
+          <h3>Instalação Fácil</h3>
+          <p>Sem necessidade de cabeamento. Ligue e comece a usar!</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Veja como funciona</h2>
+      <div class="video">
         <iframe
           src="https://www.youtube.com/embed/PQXqwWvAvYs"
-          title="FWA Brisanet"
           frameborder="0"
           allowfullscreen
         ></iframe>
       </div>
-
-      <a class="btn-whatsapp" href="https://wa.me/5584921508206" target="_blank"
-        >Fale com um consultor no WhatsApp</a
-      >
     </section>
 
-    <footer>Brisanet FWA © 2025 – Desenvolvido por Leonardo com 💙</footer>
+    <section data-aos="fade-up">
+      <h2>Fale com um consultor</h2>
+      <p>
+        Está pronto para experimentar o FWA? Tire dúvidas e saiba mais com um
+        especialista Brisanet:
+      </p>
+      <a
+        class="whatsapp-btn"
+        href="https://wa.me/5584987654321"
+        target="_blank"
+      >
+        <i class="bx bxl-whatsapp"></i> Chamar no WhatsApp
+      </a>
+    </section>
+
+    <section class="fwa-image" data-aos="fade-up">
+      <img
+        src="https://source.unsplash.com/featured/?internet,technology"
+        alt="FWA exemplo"
+      />
+    </section>
+
+    <footer data-aos="fade-up">
+      Brisanet FWA © 2025 – Feito com 💡 por Leonardo
+    </footer>
+
+    <!-- AOS JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
   </body>
 </html>
